@@ -1,8 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RomanNumeralsPBT", "RomanNumeralsPBT\RomanNumeralsPBT.fsproj", "{04FD0567-A05F-4D86-9923-6D1C05BD5DE7}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RomanNumeralsPBT.Tests", "RomanNumeralsPBT.Tests\RomanNumeralsPBT.Tests.fsproj", "{816F1C15-4088-4DD7-9C9C-AEB249B896EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04FD0567-A05F-4D86-9923-6D1C05BD5DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04FD0567-A05F-4D86-9923-6D1C05BD5DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04FD0567-A05F-4D86-9923-6D1C05BD5DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04FD0567-A05F-4D86-9923-6D1C05BD5DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{816F1C15-4088-4DD7-9C9C-AEB249B896EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{816F1C15-4088-4DD7-9C9C-AEB249B896EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{816F1C15-4088-4DD7-9C9C-AEB249B896EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{816F1C15-4088-4DD7-9C9C-AEB249B896EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
