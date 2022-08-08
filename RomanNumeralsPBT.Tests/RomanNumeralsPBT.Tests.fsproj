@@ -27,4 +27,8 @@
       <ProjectReference Include="..\RomanNumeralsPBT\RomanNumeralsPBT.fsproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Include="RomanTests.fs" />
+    </ItemGroup>
+
 </Project>
