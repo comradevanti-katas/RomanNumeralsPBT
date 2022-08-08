@@ -17,9 +17,8 @@ let private characterIsValid c = validCharacters |> Set.contains c
 
 
 [<RomanProperty>]
-let ``At least one character`` (i: int) =
-    i |> Roman.convert |> String.length >= 1
+let ``At least one character`` i = i |> Roman.convert |> String.length >= 1
 
 [<RomanProperty>]
-let ``Only valid characters`` (i: int) =
+let ``Only valid characters`` i =
     i |> Roman.convert |> Seq.forall characterIsValid
