@@ -46,3 +46,11 @@ let ``No character is repeated more than 3 times`` i =
     |> Seq.map Array.length
     |> Seq.forall (fun letterCount -> letterCount >= 2)
     |@ $"Failing roman: %s{roman}"
+
+[<RomanProperty>]
+let ``Each character exists 0-4 times`` i =
+    let roman = Roman.convert i
+
+    validCharacters
+    |> Set.forall (fun c -> roman |> Seq.filter ((=) c) |> Seq.length <= 4)
+    |@ $"Failing roman: %s{roman}"
