@@ -26,3 +26,14 @@ let ``Only valid characters`` i =
 [<RomanProperty>]
 let ``Different decimals make different romans`` i1 i2 =
     i1 <> i2 ==> lazy ((Roman.convert i1) <> (Roman.convert i2))
+
+[<RomanProperty>]
+let ``No character is repeated more than 3 times`` i =
+    let roman = Roman.convert i
+    
+    roman
+    |> Seq.windowed 4
+    |> Seq.map Array.distinct
+    |> Seq.map Array.length
+    |> Seq.forall (fun letterCount -> letterCount >= 2)
+    |@ $"Failing roman: %s{roman}"
