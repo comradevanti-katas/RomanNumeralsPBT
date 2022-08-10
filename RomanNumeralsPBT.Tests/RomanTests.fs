@@ -21,16 +21,25 @@ let ``At least one character`` i = i |> Roman.convert |> String.length >= 1
 
 [<RomanProperty>]
 let ``Only valid characters`` i =
-    i |> Roman.convert |> Seq.forall characterIsValid
+    let roman = i |> Roman.convert
+
+    roman |> Seq.forall characterIsValid
+    |@ $"Failing roman: %s{roman}"
 
 [<RomanProperty>]
 let ``Different decimals make different romans`` i1 i2 =
-    i1 <> i2 ==> lazy ((Roman.convert i1) <> (Roman.convert i2))
+    i1 <> i2
+    ==> lazy
+        (let r1 = Roman.convert i1
+         let r2 = Roman.convert i2
+
+         r1 <> r2
+         |@ $"%d{i1} and %d{i2} made the same roman (%s{r1})")
 
 [<RomanProperty>]
 let ``No character is repeated more than 3 times`` i =
     let roman = Roman.convert i
-    
+
     roman
     |> Seq.windowed 4
     |> Seq.map Array.distinct
