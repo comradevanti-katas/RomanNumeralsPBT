@@ -2,26 +2,26 @@
 module RomanNumeralsPBT.Roman
 
 let private symbolsWithValues =
-    List.rev [ ("I", 1)
-               ("IV", 4)
-               ("V", 5)
-               ("IX", 9)
-               ("X", 10)
-               ("XL", 40)
-               ("L", 50)
-               ("XC", 90)
-               ("C", 100)
-               ("CD", 400)
-               ("D", 500)
-               ("CM", 900)
-               ("M", 1000) ]
+    [ ("I", 1)
+      ("IV", 4)
+      ("V", 5)
+      ("IX", 9)
+      ("X", 10)
+      ("XL", 40)
+      ("L", 50)
+      ("XC", 90)
+      ("C", 100)
+      ("CD", 400)
+      ("D", 500)
+      ("CM", 900)
+      ("M", 1000) ]
 
-let convert i =
+let rec convert i =
+    if i > 0 then
+        let symbol, value =
+            symbolsWithValues |> List.findBack (snd >> (>=) i)
 
-    let rec addSymbolTo (num, s) (symbol, value) =
-        if num >= value then
-            addSymbolTo (num - value, s + symbol) (symbol, value)
-        else
-            (num, s)
-
-    symbolsWithValues |> List.fold addSymbolTo (i, "") |> snd
+        let rest = convert (i - value)
+        symbol + rest
+    else
+        ""
